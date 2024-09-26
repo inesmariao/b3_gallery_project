@@ -1,42 +1,130 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ===================================
+    Estilos para el contenedor principal de la imagen destacada
+   =================================== */
+   .main-img-container {
+    display: flex; /* Flexbox para alinear contenido */
+    justify-content: center; /* Centrar horizontalmente la imagen */
+    align-items: center; /* Centrar verticalmente la imagen */
+    width: 100%; /* La imagen ocupará el 100% del contenedor padre */
+    max-width: 900px; /* Ancho máximo de 900px */
+    height: 600px; /* Altura fija de 600px */
+    overflow: hidden; /* Ocultar cualquier contenido que sobresalga del contenedor */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    object-fit: content; /* Ajuste de la imagen para que se adapte al contenedor */
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* ===================================
+      Media Query para pantallas pequeñas
+     =================================== */
+  @media (max-width: 768px) {
+    .main-img-container {
+      max-height: 300px; /* Limitar la altura a 300px en pantallas pequeñas */
+    }
+  
+    .thumbnail-container {
+      height: 80px !important; /* Forzar una altura de 80px para el contenedor de miniaturas */
+      flex-wrap: wrap !important; /* Forzar que los elementos se envuelvan en pantallas pequeñas */
+    }
+  
+    .thumbnail-image-size {
+      max-width: 50px !important; /* Limitar el ancho a 50px */
+      max-height: 50px !important; /* Limitar la altura a 50px */
+      flex-basis: 50px !important; /* Definir una base de tamaño de 50px para cada miniatura */
+    }
+  
+    figcaption {
+      font-size: 10px; /* Reducir el tamaño del texto del pie de figura */
+      height: 25px; /* Ajustar la altura del pie de figura a 25px */
+    }
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  /* ===================================
+      Estilos para el contenedor de miniaturas
+     =================================== */
+  .thumbnail-container {
+    display: flex; /* Usar flexbox para las miniaturas */
+    flex-wrap: wrap; /* Permitir que las miniaturas se distribuyan en varias filas */
+    justify-content: center; /* Centrar las miniaturas horizontalmente */
+    gap: 10px; /* Espacio de 10px entre miniaturas */
+    height: 150px; /* Altura fija del contenedor de miniaturas */
+    align-items: center; /* Alinear verticalmente las miniaturas */
+    margin: 0; /* Sin margen adicional */
+    padding: 0; /* Sin relleno adicional */
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  
+  /* ===================================
+      Estilos para el tamaño y diseño de las miniaturas
+     =================================== */
+  .thumbnail-image-size {
+    width: 100px;  /* Fijar el ancho de las miniaturas a 100px */
+    height: 100px; /* Fijar la altura de las miniaturas a 100px */
+    border-radius: 5px; /* Bordes redondeados de 5px para las miniaturas */
+    overflow: hidden; /* Ocultar cualquier parte de la imagen que sobresalga */
+    position: relative; /* Necesario para posicionar el pie de figura */
+    margin: 0; /* Sin margen adicional */
+    padding: 0; /* Sin relleno adicional */
+  }
+  
+  .thumbnail-image-size img {
+    width: 100%; /* Asegurar que la imagen ocupe todo el ancho del contenedor */
+    height: 100%; /* Asegurar que la imagen ocupe toda la altura del contenedor */
+    object-fit: cover; /* Asegurar que la imagen cubra el contenedor sin deformarse */
+  }
+  
+  /* ===================================
+      Estilos para los enlaces de las miniaturas
+     =================================== */
+  .links {
+    margin: 0; /* Sin márgenes adicionales */
+    padding: 0; /* Sin relleno adicional */
+    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+    color: white; /* Texto de los enlaces en blanco */
+    text-align: center; /* Centrar el texto dentro del enlace */
+    box-shadow: 0 2px 2px rgba(0,0, 0,1); /* Añadir una sombra ligera alrededor del enlace */
+    transition: all 0.25s; /* Suavizar las transiciones */
+  }
+  
+  .links:hover {
+    transform: translateY(-15px); /* Desplazar el enlace hacia arriba al hacer hover */
+    box-shadow: 0 12px 16px rgba(0,0,0,1); /* Aumentar la sombra al hacer hover */
+  }
+  
+  /* ===================================
+      Estilos para el pie de figura (texto debajo de las miniaturas)
+     =================================== */
+  figcaption {
+    height: 30px; /* Altura del pie de figura a 30px */
+    display: flex; /* Usar flexbox para alinear el texto */
+    align-items: center; /* Alinear el texto verticalmente en el centro */
+    justify-content: center; /* Centrar el texto horizontalmente */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente negro */
+    color: white; /* Texto en blanco */
+    position: absolute; /* Posicionar el pie de figura dentro del contenedor */
+    bottom: 0; /* Posicionar el pie de figura en la parte inferior */
+    width: 100%; /* Asegurar que el pie de figura ocupe todo el ancho del contenedor */
+    margin: 0; /* Sin margen adicional */
+    padding: 0; /* Sin relleno adicional */
+  }
+  
+  /* ===================================
+      Estilos generales para las figuras que contienen las miniaturas
+     =================================== */
+  figure {
+    justify-content: center; /* Centrar el contenido dentro de la figura */
+    height: 100%; /* Asegurar que el contenedor ocupe toda la altura disponible */
+    display: flex; /* Usar flexbox para las figuras */
+    flex-direction: column; /* Disponer los elementos de las figuras en columna */
+    background: #373B44; /* Color de fondo oscuro para la figura */
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44); /* Gradiente en navegadores webkit */
+    background: linear-gradient(to right, #4286f4, #373B44); /* Gradiente de azul a oscuro */
+    position: relative; /* Posicionamiento relativo para el pie de figura */
+    margin: 0; /* Sin margen adicional */
+    padding: 0; /* Sin relleno adicional */
+  }
+  
+  /* ===================================
+      Estilos para el título principal del proyecto
+     =================================== */
+  h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra ligera para el texto del título */
+  }
