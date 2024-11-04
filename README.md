@@ -9,7 +9,7 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. Clona este repositorio en tu máquina local (Crea un Fork si lo vas a editar):
 
     ```bash
-    git clone https://github.com/inesmariao/b3_gallery_project.git
+    git clone https://github.com/karen-colon/b3_gallery_project.git
     ```
 
 2. Navega al directorio del proyecto:
